@@ -58,7 +58,7 @@
       payload += mqStr(_q.usr) + mqStr(_q.pwd);
     }
     return mqPkt(
-      0b00010000,
+      0x10 /*0b00010000*/,
       mqStr("MQTT") /*protocol name*/ +
         sFCC(
           4 /*protocol level*/,
@@ -133,7 +133,7 @@
       throw "tMQTT-TL";
     }
     if (_q.cn) {
-      _q.cl.write(mqPkt(0b00110001, mqStr(topic), data));
+      _q.cl.write(mqPkt(0x31 /*0b00110001*/, mqStr(topic), data));
       _q.emit("published");
     }
   };
