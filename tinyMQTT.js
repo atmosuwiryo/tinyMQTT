@@ -49,7 +49,7 @@
     var payload = mqStr(id);
 
     if (_q.wt) {
-      flags |= 0x04;
+      flags |= 0x24; /*will retain + will flag*/
       payload += mqStr(_q.wt) + mqStr(_q.wp);
     }
     if (_q.usr && _q.pwd) {
